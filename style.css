@@ -67,8 +67,19 @@
 .cards{
     position: absolute;
     border-radius: 20px;
+    display: inline-block;
     left: 200px;
     top: 200px;
+    width:300px;
+    height: 600px ;
+    background-color:white;
+}
+.cards1{
+    position: absolute;
+    border-radius: 20px;
+    display: inline-block;
+    left: 400px;
+    top: 0px;
     width:300px;
     height: 600px ;
     background-color:white;
@@ -80,6 +91,15 @@
     margin-left: auto;
     margin-right: auto;
 }
+.image1 img{
+    width: 100%;
+    height: 450px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .title{
     text-align: center;
 }
