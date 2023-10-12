@@ -17,7 +17,7 @@
             margin: 0 auto;
             background: #fff;
             padding: 27px;
-            border-radius: 5px;
+            border-radius: 15px;
             box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
             text-align: center;
             margin-top: 180px;
@@ -44,7 +44,10 @@
             margin-top: 5px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
-            border-radius: 3px;
+            border-radius: 5px;
+        }
+        .container img{
+            border-radius: 50px;
         }
 
         .btn {
@@ -53,7 +56,7 @@
             color: #fff;
             border: none;
             padding: 10px;
-            border-radius: 3px;
+            border-radius: 10px;
             cursor: pointer;
         }
 
@@ -68,25 +71,26 @@
 </head>
 <body>
     <div class="container">
+        <img src="/Image/user_Avatar.jpeg" alt="user_Avatar" height="60" width="60">
         <h2>NGO</h2>
         <form method="post" id="form1">
             <div class="input-group">
-                <label for="ngo-name">Name of NGO:</label>
+                <label for="ngo-name"><b>Name of NGO:</b></label>
                 <input type="text" id="ngo-name" name="ngo-name" required>
             </div>
             <div class="input-group">
-                <label for="registration-no">Registration No of NGO:</label>
+                <label for="registration-no"><b>Registration No of NGO:</b></label>
                 <input type="text" id="registration-no" name="registration-no" required>
             </div>
             <div class="input-group">
-                <label for="legal-status">Legal Status:</label>
+                <label for="legal-status"><b>Legal Status:</b></label>
                 <select id="legal-status" name="legal-status">
                     <option value="Non-Profit">Non-Profit</option>
                     <option value="Charitable">Charitable</option>
                 </select>
             </div>
             <div class="input-group">
-                <label for="address">Address:</label>
+                <label for="address"><b>Address:</b></label>
                 <input type="text" id="address" name="address" required>
             </div>
             <button type="submit" class="btn">Submit</button>
