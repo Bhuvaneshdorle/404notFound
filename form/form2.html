@@ -60,11 +60,14 @@
             text-align: left;
         }
     </style>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="../index.js"></script>
 </head>
 <body>
     <div class="container">
         <h2>NGO</h2>
-        <form action="#" method="post">
+        <form method="post" id="form1">
             <div class="input-group">
                 <label for="ngo-name">Name of NGO:</label>
                 <input type="text" id="ngo-name" name="ngo-name" required>
