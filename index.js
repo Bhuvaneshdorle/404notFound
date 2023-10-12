@@ -20,17 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     let formData = {
-      name: document.getElementById('name').value,
+      //Individual
+      name: document.getElementById('name').value ,
       address: document.getElementById('address').value,
       phone: document.getElementById('phone').value,
-//NGO data adding
-      ngoName: document.getElementById('ngo-name').value,
-      regNo: document.getElementById('registration-no').value,
-      legal: document.getElementById('legal-status').value,
-//Hotel data adding
-      hotelName: document.getElementById('hotel-name').value,
-      fssai: document.getElementById('fssai').value,
-      landmark: document.getElementById('landmark').value,
 
     };
     submitData(formData);

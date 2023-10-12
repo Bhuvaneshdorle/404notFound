@@ -70,7 +70,7 @@
     </style>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-    <script src="../index.js"></script>
+    <script defer src="../index.js"></script>
 </head>
 <body>
     <section>
@@ -92,7 +92,7 @@
                 <label for="phone"><b>Phone Number:</b></label>
                 <input type="text" id="phone" name="phone" required>
             </div>
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" class="btn" onclick="window.location.href='/table/table.html'">Submit</button>
         </form>
     </div>
 </section>

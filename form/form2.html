@@ -72,12 +72,30 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
     <script src="../index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('form2');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let formData = {
+//NGO data adding
+      ngoName: document.getElementById('ngo-name').value,
+      regNo: document.getElementById('registration-no').value,
+      legal: document.getElementById('legal-status').value,
+      add: document.getElementById('address').value,
+
+    };
+    submitData(formData);
+  });
+});
+    </script>
 </head>
 <body>
     <div class="container">
         <img src="/Image/user_Avatar.jpeg" alt="user_Avatar" height="60" width="60">
         <h2>NGO</h2>
-        <form method="post" id="form1">
+        <form method="post" id="form2">
             <div class="input-group">
                 <label for="ngo-name"><b>Name of NGO:</b></label>
                 <input type="text" id="ngo-name" name="ngo-name" required>
@@ -97,7 +115,7 @@
                 <label for="address"><b>Address:</b></label>
                 <input type="text" id="address" name="address" required>
             </div>
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" class="btn" onclick="window.location.href='/table/table.html'">Submit</button>
         </form>
     </div>
 </body>

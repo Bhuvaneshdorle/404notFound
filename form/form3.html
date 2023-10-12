@@ -75,6 +75,23 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
     <script src="../index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('form2');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let formData = {
+//NGO data adding
+      hotelName: document.getElementById('hotel-name')?.value,
+      fssai: document.getElementById('fssai')?.value,
+      landmark: document.getElementById('landmark')?.value,
+
+    };
+    submitData(formData);
+  });
+});
+    </script>
 </head>
 <body>
     <div class="container">
@@ -100,7 +117,7 @@
                 <label for="landmark"><b>Landmark:</b></label>
                 <input type="text" id="landmark" name="landmark" required>
             </div>
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" class="btn" onclick="window.location.href='/table/table.html'">Submit</button>
         </form>
     </div>
 </body>
