@@ -23,6 +23,15 @@ document.addEventListener('DOMContentLoaded', function () {
       name: document.getElementById('name').value,
       address: document.getElementById('address').value,
       phone: document.getElementById('phone').value,
+
+      ngoName: document.getElementById('ngo-name').value,
+      regNo: document.getElementById('registration-no').value,
+      legal: document.getElementById('legal-status').value,
+
+      hotelName: document.getElementById('hotel-name').value,
+      fssai: document.getElementById('fssai').value,
+      landmark: document.getElementById('landmark').value,
+
     };
     submitData(formData);
   });
