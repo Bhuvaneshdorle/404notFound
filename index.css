@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+#banner{
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+.banner-text{
+    text-align: center;
+    color: white;
+    
+}
+.banner-text h1{
+    font-size: 80px;
+    font-family: 'Kaushan Script', cursive;
+}
+.banner-text p{
+    font-size: 20px;
+    font-style: italic;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+.cards{
+
+    border-radius: 20px;
+    display: inline-block;
+
+    width:300px;
+    height: 600px ;
+    
+}
+.card{   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+    width:350px;
+    height: 650px ;
+    background-color:white;
+}
+
+.image img{
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.image1 img{
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    
+    height: 520px;
+}
+
+.title{
+    text-align: center;
+}
+.description{
+    text-align: center;
+}
+button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-color: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
