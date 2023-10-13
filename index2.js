@@ -20,7 +20,7 @@ const firebaseConfig = {
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       let formData = {
-        //Individual
+        //NGO
         name: document.getElementById('name').value ,
         address: document.getElementById('address').value,
         phone: document.getElementById('phone').value,
