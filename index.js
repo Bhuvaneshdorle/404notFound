@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
       name: document.getElementById('name').value ,
       address: document.getElementById('address').value,
       phone: document.getElementById('phone').value,
+      food: document.getElementById('food').value,
 
     };
     submitData(formData);
