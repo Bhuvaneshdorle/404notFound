@@ -74,10 +74,10 @@
     </style>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-    <script src="../index.js"></script>
+    <script defer src="../index.js"></script>
     <script>
+        const form = document.getElementById('form3');
         document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('form2');
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -98,7 +98,7 @@
     <div class="container">
         <img src="/Image/user_Avatar.jpeg" alt="user_Avatar" height="60" width="60">
         <h2>Hotel</h2>
-        <form action="#" method="post">
+        <form method="post" id="form3">
             <div class="input-group">
                 <label for="name"><b>Name of Hotel:</b></label>
                 <input type="text" id="name" name="name" required>
