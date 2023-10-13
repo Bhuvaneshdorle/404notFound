@@ -71,26 +71,7 @@
     </style>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-    <script defer src="../index.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('form2');
-
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    let formData = {
-//NGO data adding
-      ngoName: document.getElementById('name').value,
-      regNo: document.getElementById('registration-no').value,
-      legal: document.getElementById('legal-status').value,
-      add: document.getElementById('address').value,
-      phone: document.getElementById('phone').value,
-
-    };
-    submitData(formData);
-  });
-});
-    </script>
+    <script defer src="../index2.js"></script>
 </head>
 <body>
     <div class="container">
