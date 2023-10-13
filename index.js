@@ -68,6 +68,7 @@ async function submitIndividualData(data) {
     await userCollection.add(data);
     // Show alert
     alert('Data saved successfully');
+    window.location.href = "/table/individualTable.html"
   } catch (error) {
     console.log("submitData = error:", error)
   }
@@ -81,6 +82,7 @@ async function submitHotelData(data) {
     await userCollection.add(data);
     // Show alert
     alert('Data saved successfully');
+    window.location.href = "/table/hotelTable.html"
   } catch (error) {
     console.log("submitData = error:", error)
   }
@@ -94,6 +96,7 @@ async function submitNGOData(data) {
     await userCollection.add(data);
     // Show alert
     alert('Data saved successfully');
+    window.location.href = "/table/ngoTable.html"
   } catch (error) {
     console.log("submitData = error:", error)
   }
