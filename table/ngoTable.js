@@ -19,7 +19,7 @@ async function fetchDataFromDb() {
     snapshot.docs.forEach(doc => {
         const docId = doc._delegate._key.path.segments[6]; // Retrieving the ID
         const userData = doc.data();
-        AddItemToTable(userData, docId);
+        AddItemToTable(userData, docId);  // Make sure you're passing the doc.id here
     });
 }
 
@@ -37,7 +37,7 @@ async function deleteFromFirebase(docId) {
     try {
         await firestore.collection('ngo').doc(docId).delete();
         alert("Applied successfully!");
-        location.reload();  
+        location.reload();  // reload the page to reflect the changes
     } catch (error) {
         console.error("Error deleting document: ", error);
     }

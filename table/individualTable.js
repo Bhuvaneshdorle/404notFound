@@ -19,7 +19,7 @@ async function fetchDataFromDb() {
     snapshot.docs.forEach(doc => {
         const docId = doc._delegate._key.path.segments[6]; // Retrieving the ID
         const userData = doc.data();
-        AddItemToTable(userData, docId);  
+        AddItemToTable(userData, docId);  // Make sure you're passing the doc.id here
     });
 }
 
@@ -37,7 +37,7 @@ function handleApply(event) {
 async function deleteFromFirebase(docId) {
     try {
         await firestore.collection('users').doc(docId).delete();
-        alert("Applied successfully! We will contact you Shortly.");
+        alert("Applied successfully! We will contact you Shortly");
         location.reload();  
     } catch (error) {
         console.error("Error deleting document: ", error);
