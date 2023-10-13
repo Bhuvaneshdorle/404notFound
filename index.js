@@ -13,36 +13,83 @@ firebase.initializeApp(firebaseConfig);
 const firestore = firebase.firestore();
 
 
-
 document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('form1');
+  const individualForm = document.getElementById('form1');
+  const ngoForm = document.getElementById('form2');
+  const hotelForm = document.getElementById('form3');
 
-  form.addEventListener('submit', function (event) {
+  individualForm?.addEventListener('submit', function (event) {
     event.preventDefault();
     let formData = {
       //Individual
-      name: document.getElementById('name').value ,
+      name: document.getElementById('name').value,
       address: document.getElementById('address').value,
       phone: document.getElementById('phone').value,
       food: document.getElementById('food').value,
 
     };
-    submitData(formData);
+    submitIndividualData(formData);
   });
+
+  ngoForm?.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let formData = {
+      //Individual
+      name: document.getElementById('name').value,
+      registrationNumber: document.getElementById('registration-no').value,
+      legalStatus: document.getElementById('legal-status').value,
+      address: document.getElementById('address').value,
+      phone: document.getElementById('phone').value,
+    };
+    submitNGOData(formData);
+  });
+
+  hotelForm?.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let formData = {
+      //Individual
+      name: document.getElementById('name').value,
+      fssai: document.getElementById('fssai').value,
+      address: document.getElementById('address').value,
+      phone: document.getElementById('phone').value,
+      landmark: document.getElementById('landmark').value,
+      food: document.getElementById('food').value,
+    };
+    submitIndividualData(formData);
+  });
+
 });
 
-async function submitData(data) {
+async function submitIndividualData(data) {
   try {
 
     const userCollection = firestore.collection('users');
-    const snapshot = await userCollection.get();
-    const users = snapshot.docs.map(doc => doc.data());
-    let user = users.find(u => u.phone === data.phone);
-  
-    if (user) {
-      alert('Phone number already exists');
-      return;
-    }
+    // Add a new document with a generated id.
+    await userCollection.add(data);
+    // Show alert
+    alert('Data saved successfully');
+  } catch (error) {
+    console.log("submitData = error:", error)
+  }
+}
+
+async function submitHotelData(data) {
+  try {
+
+    const userCollection = firestore.collection('hotel');
+    // Add a new document with a generated id.
+    await userCollection.add(data);
+    // Show alert
+    alert('Data saved successfully');
+  } catch (error) {
+    console.log("submitData = error:", error)
+  }
+}
+
+async function submitNGOData(data) {
+  try {
+
+    const userCollection = firestore.collection('ngo');
     // Add a new document with a generated id.
     await userCollection.add(data);
     // Show alert

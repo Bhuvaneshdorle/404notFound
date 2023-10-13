@@ -24,7 +24,7 @@
     }
 </style>
 </head>
-<h1>RESTAURANT LIST</h1>
+<h1>Supplier LIST</h1>
 <body>
   <table>
     <thead>
@@ -75,12 +75,26 @@
     });
   }
 
+  async function fetchDataFromDb(){
+    const userCollection = firestore.collection('users');
+    const snapshot = await userCollection.get();
+   const users = snapshot.docs.map(doc => doc.data());
+   console.log("🚀 ~ file: table.html:82 ~ fetchDataFromDb ~ users:", users)
+
+   users.forEach(element => {
+    AddItemToTable(element);
+   });
+   
+  }
+
 
   //filling the table
 
   var srno=0;
   var tbody = document.getElementById('tbody1');
-  function AddItemToTable(name,food,address){
+  function AddItemToTable(payload){
+    const {name, address, phone, food} = payload;
+    console.log("🚀 ~ file: table.html:92 ~ AddItemToTable ~ payload", payload)
     var trow = document.createElement('tr');
     var td1 = document.createElement('td');
     var td2 = document.createElement('td');
@@ -101,18 +115,16 @@
     trow.appendChild(td4);
 
     tbody.appendChild(trow);
-
-function AddAllItemsOnTheTable(UsersList){
-  srno = 0;
-  tbody.innerHTML = "";
-  UsersList.forEach(element =>{
-    AddAllItemsOnTheTable(element.name,element.food,element.address,element.phone);
-  });
-}
-
   }
 
-  window.onload = GetAllDataRealtime;
+  document.addEventListener('DOMContentLoaded', async function () {
+   try {
+    console.log("🚀 ~ file: table.html:124 ~ error:")
+     await fetchDataFromDb();
+   } catch (error) {
+    console.log("🚀 ~ file: table.html:124 ~ error:", error)
+   }
+  });
   </script>
 </body>
 </html>
