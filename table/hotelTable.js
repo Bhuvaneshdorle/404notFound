@@ -13,7 +13,7 @@ firebase.initializeApp(firebaseConfig);
 const firestore = firebase.firestore();
 
 async function fetchDataFromDb() {
-    const userCollection = firestore.collection('users');
+    const userCollection = firestore.collection('hotel');
     const snapshot = await userCollection.get();
     const users = snapshot.docs.map(doc => doc.data());
     console.log("🚀 ~ file: table.html:82 ~ fetchDataFromDb ~ users:", users)
@@ -27,19 +27,24 @@ async function fetchDataFromDb() {
 var srno = 0;
 var tbody = document.getElementById('tbody1');
 function AddItemToTable(payload) {
-    const { name, address, phone, food } = payload;
+    const { name, fssai, address, phone, landmark, food } = payload;
     var trow = document.createElement('tr');
     var td1 = document.createElement('td');
     var td2 = document.createElement('td');
     var td3 = document.createElement('td');
     var td4 = document.createElement('td');
     var td5 = document.createElement('td');
+    var td6 = document.createElement('td');
+    var td7 = document.createElement('td');
 
     td1.innerHTML = ++srno;
     td2.innerHTML = name;
-    td3.innerHTML = food;
+    td3.innerHTML = fssai;
     td4.innerHTML = address;
     td5.innerHTML = phone;
+    td6.innerHTML = landmark;
+    td7.innerHTML = food;
+
 
     trow.appendChild(td1);
     trow.appendChild(td2);
@@ -47,6 +52,8 @@ function AddItemToTable(payload) {
     trow.appendChild(td4);
     trow.appendChild(td4);
     trow.appendChild(td5);
+    trow.appendChild(td6);
+    trow.appendChild(td7);
     tbody.appendChild(trow);
 }
 

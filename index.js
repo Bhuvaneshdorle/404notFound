@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
       landmark: document.getElementById('landmark').value,
       food: document.getElementById('food').value,
     };
-    submitIndividualData(formData);
+    submitHotelData(formData);
   });
 
 });
