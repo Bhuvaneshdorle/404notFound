@@ -32,6 +32,7 @@
       <th>Suplier Name</th>
       <th>Food Quantity<th>
       <th>Address</th>
+      <th>Contact</th>
     </thead>
     <tbody id="tbody1"></tbody>
    
@@ -80,8 +81,38 @@
   var srno=0;
   var tbody = document.getElementById('tbody1');
   function AddItemToTable(name,food,address){
+    var trow = document.createElement('tr');
+    var td1 = document.createElement('td');
+    var td2 = document.createElement('td');
+    var td3 = document.createElement('td');
+    var td4 = document.createElement('td');
+    var td5 = document.createElement('td');
+
+    td1.innerHTML = ++srno;
+    td2.innerHTML = name;
+    td4.innerHTML = food;
+    td3.innerHTML = address;
+    td5.innerHTML = phone;
+
+    trow.appendChild(td1);
+    trow.appendChild(td2);
+    trow.appendChild(td3);
+    trow.appendChild(td4);
+    trow.appendChild(td4);
+
+    tbody.appendChild(trow);
+
+function AddAllItemsOnTheTable(UsersList){
+  srno = 0;
+  tbody.innerHTML = "";
+  UsersList.forEach(element =>{
+    AddAllItemsOnTheTable(element.name,element.food,element.address,element.phone);
+  });
+}
 
   }
+
+  window.onload = GetAllDataRealtime;
   </script>
 </body>
 </html>
