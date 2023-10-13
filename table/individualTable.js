@@ -15,18 +15,40 @@ const firestore = firebase.firestore();
 async function fetchDataFromDb() {
     const userCollection = firestore.collection('users');
     const snapshot = await userCollection.get();
-    const users = snapshot.docs.map(doc => doc.data());
-    console.log("🚀 ~ file: table.html:82 ~ fetchDataFromDb ~ users:", users)
 
-    users.forEach(element => {
-        AddItemToTable(element);
+    snapshot.docs.forEach(doc => {
+        const docId = doc._delegate._key.path.segments[6]; // Retrieving the ID
+        const userData = doc.data();
+        AddItemToTable(userData, docId);  // Make sure you're passing the doc.id here
     });
-
 }
+
+
+
+function handleApply(event) {
+    const shouldApply = confirm("Are you sure you want to apply?");
+    if (shouldApply) {
+        const docId = event.target.getAttribute('data-id');
+        deleteFromFirebase(docId);
+    }
+}
+
+
+async function deleteFromFirebase(docId) {
+    try {
+        await firestore.collection('users').doc(docId).delete();
+        alert("Applied successfully!");
+        location.reload();  // reload the page to reflect the changes
+    } catch (error) {
+        console.error("Error deleting document: ", error);
+    }
+}
+
+
 //filling the table
 var srno = 0;
 var tbody = document.getElementById('tbody1');
-function AddItemToTable(payload) {
+function AddItemToTable(payload, id) {
     const { name, address, phone, food } = payload;
     var trow = document.createElement('tr');
     var td1 = document.createElement('td');
@@ -34,6 +56,13 @@ function AddItemToTable(payload) {
     var td3 = document.createElement('td');
     var td4 = document.createElement('td');
     var td5 = document.createElement('td');
+
+    var td6 = document.createElement('td');
+    var applyButton = document.createElement('button');
+    applyButton.innerText = 'Apply';
+    applyButton.setAttribute('data-id', id);
+    applyButton.addEventListener('click', handleApply);
+    td6.appendChild(applyButton);
 
     td1.innerHTML = ++srno;
     td2.innerHTML = name;
@@ -47,6 +76,7 @@ function AddItemToTable(payload) {
     trow.appendChild(td4);
     trow.appendChild(td4);
     trow.appendChild(td5);
+    trow.appendChild(td6);
     tbody.appendChild(trow);
 }
 
