@@ -17,6 +17,7 @@ const firebaseConfig = {
   document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('form3');
   
+    
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       let formData = {
